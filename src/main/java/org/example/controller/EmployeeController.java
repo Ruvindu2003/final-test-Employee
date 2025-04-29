@@ -27,7 +27,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/Delete/{id}")
-    public void DeleteEmployee(@PathVariable Long id){
+    public void DelgieteEmployee(@PathVariable Long id){
 
         employeeService.DeleteEmployee(id);
     }
