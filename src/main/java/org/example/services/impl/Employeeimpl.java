@@ -50,19 +50,29 @@ public class Employeeimpl implements EmployeeService {
     }
 
     @Override
-    public void DeleteEmployee(Long id) {
+public void DeleteEmployee(Long id) {
 
-       employeeRepository.deleteById(id);
+       employeeRepository.deleteById(id)    ;
 
     }
 
     @Override
     public void UpdateEmployee(Employee employee) {
-        employeeRepository.save(modelMapper.map(employee, Employeeentity.class));
+        Employeeentity existingEmployee = employeeRepository.findById(employee.getId())
+                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + employee.getId()));
 
 
+        modelMapper.map(employee, existingEmployee);
 
+
+        employeeRepository.save(existingEmployee);
     }
+
+
+
+
+
+
 
     @Override
     public Employee SerchEmployee(Long id) {

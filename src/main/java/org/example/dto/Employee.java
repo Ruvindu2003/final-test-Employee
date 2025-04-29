@@ -1,6 +1,7 @@
 package org.example.dto;
 
 import lombok.*;
+import org.example.util.Departments;
 
 @Data
 @Getter
@@ -12,5 +13,5 @@ public class Employee {
     private Long id;
     private String name;
     private String email;
-    private String Department;
+    private Departments departments;
 }

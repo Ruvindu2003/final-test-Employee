@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.util.Departments;
 
 @Data
 @AllArgsConstructor
@@ -19,5 +20,8 @@ public class Employeeentity {
     private Long id;
     private String name;
     private String email;
-    private String Department;
+    @Enumerated(EnumType.STRING)
+    private Departments departments;
+
+
 }
