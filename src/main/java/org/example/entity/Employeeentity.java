@@ -24,6 +24,7 @@ public class Employeeentity {
     private Long id;
     private String name;
     private String email;
+    private String adrees;
     @Enumerated(EnumType.STRING)
     private Departments departments;
 
