@@ -15,21 +15,18 @@ public class Userimpl implements UserService {
 
     @Override
     public void register(User user) {
-
         UserEntity userEntity = modelMapper.map(user, UserEntity.class);
         userRepository.save(userEntity);
     }
 
     @Override
     public boolean validateLogin(String name, String password) {
-
         UserEntity user = userRepository.findByName(name);
         return user != null && user.getPassword().equals(password);
     }
 
     @Override
     public User getUserDetails(String name) {
-
         UserEntity user = userRepository.findByName(name);
         if (user == null) {
             return null;
