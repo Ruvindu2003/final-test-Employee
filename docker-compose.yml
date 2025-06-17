@@ -1,0 +1,16 @@
+services:
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: employee_Management
+    ports:
+      - "3306:3306"
+
+  employee-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db

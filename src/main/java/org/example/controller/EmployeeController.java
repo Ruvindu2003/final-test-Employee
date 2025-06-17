@@ -14,34 +14,34 @@ import java.util.List;
 
 public class EmployeeController {
 
-    private  final EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @GetMapping("/get-All")
-    public List<Employee> getAll(){
+    public List<Employee> getAll() {
         return employeeService.getAll();
     }
 
     @PostMapping("/save-employee")
-    public void SaveEmployee(@RequestBody Employee employee){
+    public void SaveEmployee(@RequestBody Employee employee) {
         employeeService.saveEmployee(employee);
     }
 
     @DeleteMapping("/Delete/{id}")
-    public void DelgieteEmployee(@PathVariable Long id){
+    public void DelgieteEmployee(@PathVariable Long id) {
 
         employeeService.DeleteEmployee(id);
     }
 
     @PutMapping("/update")
-    public void UpdateEmployee(@RequestBody Employee employee){
+    public void UpdateEmployee(@RequestBody Employee employee) {
         employeeService.UpdateEmployee(employee);
     }
 
     @GetMapping("Search/{id}")
-    public Employee SearchEmployee(@PathVariable  Long id) {
+    public Employee SearchEmployee(@PathVariable Long id) {
         return employeeService.SerchEmployee(id);
 
 
     }
 
-    }
+}

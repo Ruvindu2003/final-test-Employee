@@ -60,8 +60,10 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>9.2.0</version>
+            <version>8.0.33</version>
         </dependency>
+
+
 
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -73,19 +75,18 @@
 
 
     <build>
+        <finalName>employeeManagementSystem_docker</finalName>
         <plugins>
-            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- or whatever version you're using -->
-                <executions>
+                <artifactId>spring-boot-maven-plugin</artifactId><!-- Match your Spring Boot version -->
+               <!-- <executions>
                     <execution>
                         <goals>
-                            <goal>repackage</goal>
+                            <goal>build-image</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
         </plugins>
     </build>

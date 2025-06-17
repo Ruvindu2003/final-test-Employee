@@ -1,9 +1,12 @@
-spring :
+spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/employee_Management
+    url: jdbc:mysql://host.docker.internal:3306/employee_Management
     username: root
     password: 1234
-  jpa :
+  jpa:
     show-sql: true
-    hibernate :
-      ddl-auto : update
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: ALWAYS

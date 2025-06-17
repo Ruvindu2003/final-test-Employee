@@ -45,15 +45,12 @@ public class Employeeimpl implements EmployeeService {
         employeeRepository.save(modelMapper.map(employee, Employeeentity.class));
 
         return true;
-
-
     }
 
     @Override
-public void DeleteEmployee(Long id) {
+    public void DeleteEmployee(Long id) {
 
        employeeRepository.deleteById(id)    ;
-
     }
 
     @Override
@@ -70,10 +67,6 @@ public void DeleteEmployee(Long id) {
 
 
 
-
-
-
-
     @Override
     public Employee SerchEmployee(Long id) {
 
@@ -82,7 +75,38 @@ public void DeleteEmployee(Long id) {
         return employeeentity.map(entity->modelMapper.map(employeeentity, Employee.class)).orElse(null);
 
 
+    }
+
+    public Employee searchEmployee(Long id){
+
+        Optional<Employeeentity>employeeentity=employeeRepository.findById(id);
+
+       return employeeentity.map(employeeentity1 -> modelMapper.map(employeeentity1, Employee.class)).orElse(null);
 
 
     }
+
+    public boolean addProduct(Employee employee){
+
+        employeeRepository.save(modelMapper.map(employee,Employeeentity.class));
+
+        return  true;
+    }
+
+
+    public  List<Employee> getAl(){
+
+        List<Employee> employeeList=new ArrayList<>();
+        List<Employeeentity>employeeentities=employeeRepository.findAll();
+
+        employeeentities.forEach(employeeentity -> {
+            employeeList.add(modelMapper.map(employeeentity,Employee.class));
+        });
+
+        return employeeList;
+
+    }
+
+
+
 }
